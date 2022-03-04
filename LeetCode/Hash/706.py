@@ -72,7 +72,7 @@ class MyHashMap:
         if p.key == key:
             self.table[index] = ListNode() if p.next is None else p.next
             return
-        # 노드 삭ㅔ
+        # 노드 삭제
         prev = p
         while p:
             if p.key == key:
