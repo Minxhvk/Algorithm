@@ -1,3 +1,6 @@
+# sum(divmod())로 거리를 측정할 수 있다.
+# *, 0, #을 10, 11, 12로 지정
+
 def solution(numbers, hand):
     answer = ''
     left, right = 10, 12
