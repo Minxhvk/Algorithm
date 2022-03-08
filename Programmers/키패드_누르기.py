@@ -1,31 +1,24 @@
-# 못풀었음 다시
-
 def solution(numbers, hand):
     answer = ''
-    left, right = int(0), int(0)
+    left, right = 10, 12
 
     for i in numbers:
-        if i == 1 or i == 4 or i == 7:
+        if i in [1, 4, 7]:
             left = i
             answer += 'L'
 
-        elif (i % 3) == 0:
+        elif i in [3, 6, 9]:
             right = i
             answer += 'R'
 
         else:
-            if hand == 'left' and abs(i - left) == 3:
-                left = i
-                answer += 'L'
-                continue
-            elif hand == 'right' and abs(i - right) == 3:
+            i = 11 if i == 0 else i
+            absL = abs(i-left)
+            absR = abs(i-right)
+            if sum(divmod(absL, 3)) > sum(divmod(absR, 3)):
                 right = i
                 answer += 'R'
-                continue
-            if abs(i - left) > abs(i - right):
-                right = i
-                answer += 'R'
-            elif abs(i - left) < abs(i - right):
+            elif sum(divmod(absL, 3)) < sum(divmod(absR, 3)):
                 left = i
                 answer += 'L'
             else:
