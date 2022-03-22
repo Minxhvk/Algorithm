@@ -1,11 +1,13 @@
 def solution(board, moves):
-    board_length = len(board)
-    new_board = [[]]
-    while board:
-        for i in range(board_length):
-            new_board[i].append(board[i].pop(0))
-    return new_board
-
-
-solution([[0, 0, 0, 0, 0], [0, 0, 1, 0, 3], [0, 2, 5, 0, 1],
-         [4, 2, 4, 4, 2], [3, 5, 1, 3, 1]], 0)
+    answer = [None]
+    cnt = 0
+    for move in moves:
+        for i in range(len(board)):
+            if board[i][move-1] > 0:
+                if answer[-1] == board[i][move-1]:
+                    answer.pop()
+                    cnt += 1
+                else:
+                    answer.append(board[i][move-1])
+                board[i][move-1] = 0
+    return cnt*2
