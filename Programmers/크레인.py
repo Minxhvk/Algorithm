@@ -10,4 +10,6 @@ def solution(board, moves):
                 else:
                     answer.append(board[i][move-1])
                 board[i][move-1] = 0
+                break
+
     return cnt*2
