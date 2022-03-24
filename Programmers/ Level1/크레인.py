@@ -1,15 +1,15 @@
 def solution(board, moves):
-    answer = [None]
+    bucket = [None]
     cnt = 0
     for move in moves:
         for i in range(len(board)):
             if board[i][move-1] > 0:
-                if answer[-1] == board[i][move-1]:
-                    answer.pop()
+                if bucket[-1] == board[i][move-1]:
+                    bucket.pop()
                     cnt += 1
                 else:
-                    answer.append(board[i][move-1])
+                    bucket.append(board[i][move-1])
                 board[i][move-1] = 0
                 break
 
-    return cnt*2
+    return (cnt * 2)
