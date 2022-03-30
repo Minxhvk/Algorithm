@@ -1,12 +1,7 @@
 def solution(rows, columns, queries):
     answer = []
-    nums = [[0 for col in range(columns)] for row in range(rows)]
-    num = 1
-    for i in range(rows):
-        for j in range(columns):
-            nums[i][j] = num
-            num += 1
-
+    nums = [[col+columns*row for col in range(1, columns + 1)]
+            for row in range(rows)]
     for y1, x1, y2, x2 in queries:
         y1 -= 1
         x1 -= 1
