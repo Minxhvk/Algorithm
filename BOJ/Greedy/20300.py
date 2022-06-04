@@ -16,8 +16,8 @@ if(len(arr) % 2 == 0):
     for i in range(int(len(arr) / 2)):
         result = max(result, arr[i] + arr[(-i - 1)])
 else:
-    result = max(result, arr[-1])
+    result = arr[-1]
     for i in range(int(len(arr) / 2)):
         result = max(result, arr[i] + arr[len(arr) - i - 2])
-        
+
 print(result)
