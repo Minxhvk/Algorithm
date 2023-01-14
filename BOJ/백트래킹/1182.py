@@ -1,4 +1,7 @@
+from itertools import combinations
 import sys
+
+# 백트래킹 풀이
 
 
 def get():
@@ -27,3 +30,21 @@ if __name__ == "__main__":
     get_sum(0, 0)
 
     print(result)
+
+
+# combinations 풀이 -> 이게 더 느림
+
+size, target = map(int, get())
+arr = list(map(int, get()))
+result = 0
+arr_2 = []
+
+for i in range(size+1):
+    arr_2 = list(combinations(arr, i))
+    for j in arr_2:
+        if len(j) < 1:
+            continue
+        if sum(j) == target:
+            result += 1
+
+print(result)
