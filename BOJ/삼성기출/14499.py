@@ -3,13 +3,11 @@ import sys
 def get():
     return sys.stdin.readline().rstrip()
 
-dice = [0, 0, 0, 0, 0, 0]
-
 N, M, X, Y, num = map(int, get().split())
 
 board = [list(map(int, get().split())) for _ in range(N)]
 
-dice_value = [0, 0, 0, 0, 0, 0, 0]
+dice = [0, 0, 0, 0, 0, 0, 0]
 
 def rotate(arr, val):
     if val == 1:
@@ -37,12 +35,12 @@ for command in list(map(int, get().split())):
         if X + 1 >= N: continue
         X += 1
 
-    dice_value = rotate(dice_value, command)
+    dice = rotate(dice, command)
 
     if board[X][Y] == 0:
-            board[X][Y] = dice_value[6]
+            board[X][Y] = dice[6]
     else :
-      dice_value[6] = board[X][Y];
+      dice[6] = board[X][Y];
       board[X][Y] = 0;
 
-    print(dice_value[1])
+    print(dice[1])
