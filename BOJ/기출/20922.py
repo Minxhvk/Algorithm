@@ -9,24 +9,18 @@ arr = list(map(int, get().split()))
 
 
 answer = 0
-one_point = 0
-two_point = 1
+left = 0
+right = 0
 
 count_dict = defaultdict(int)
 
-count_dict[arr[one_point]] += 1
-count_dict[arr[two_point]] += 1
-
-while True:
-    if two_point == len(arr) -1 : break
-    if count_dict[arr[two_point + 1]] + 1 >  K:
-        count_dict[arr[one_point]] -= 1
-        one_point += 1
-    else:
-        two_point += 1
-        count_dict[arr[two_point]] += 1
-        
+while left <= right and right < N:
+    while count_dict[arr[right]] == K:
+        count_dict[arr[left]] -= 1
+        left += 1
+    answer = max(answer, right-left+1)
     
-    answer = max(answer, two_point - one_point + 1)
+    count_dict[arr[right]] += 1
+    right += 1
 
 print(answer)
