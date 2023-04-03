@@ -8,6 +8,8 @@ arr = list(map(int, get().split()))
 
 sotted_arr = sorted(list(set(arr)))
 
+dict = {sotted_arr[i]:i for i in range(len(sotted_arr))}
+
 for i in arr:
-  print(sotted_arr.index(i), end=" ")
+  print(dict[i], end=" ")
 
