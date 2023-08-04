@@ -28,7 +28,7 @@ for x in range(N):
         
         all_cnt += 1
         per_cnt = 0
-        while len(que) > 0:
+        while que:
             cur = que.popleft()
             per_cnt += 1 # Per Cnt ++
 
