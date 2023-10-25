@@ -33,8 +33,10 @@ p1, p2 = 0, K-1
 max_size = 0
 
 while p1 < N:
-    if p2 >= N:
-        plates = arr[p2%N-1:p1+1:-1]
+    if p2 >= N: p2 -= N
+
+    if p2 < p1:
+        plates = arr[:p2+1] + arr[p1:]
     else:
         plates = arr[p1:p2+1]
 
