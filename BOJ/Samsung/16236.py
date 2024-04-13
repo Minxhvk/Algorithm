@@ -70,10 +70,8 @@ while True:
 
         fish = fish_list[0]
 
-        shark.x = fish.x
-        shark.y = fish.y
+        shark.x, shark.y = fish.x, fish.y
         shark.eat += 1
-
         answer += fish.dist
 
         board[shark.x][shark.y] = 0
