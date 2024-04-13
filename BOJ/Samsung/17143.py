@@ -1,5 +1,4 @@
 import sys
-from collections import deque
 
 def get():
   return sys.stdin.readline().rstrip()
