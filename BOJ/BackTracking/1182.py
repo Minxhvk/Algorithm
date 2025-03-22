@@ -2,8 +2,6 @@ from itertools import combinations
 import sys
 
 # 백트래킹 풀이
-
-
 def get():
     return sys.stdin.readline().rstrip().split()
 
