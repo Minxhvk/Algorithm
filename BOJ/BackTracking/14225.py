@@ -17,9 +17,10 @@ n = int(get())
 arr = list(map(int, get().split()))
 answer_set = set()
 get_sum(0, 0)
-answer = 0
+answer = 1
 
 while True:
     if answer not in answer_set:
         print(answer)
         break
+    answer += 1
