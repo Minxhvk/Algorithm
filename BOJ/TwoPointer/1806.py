@@ -1,29 +1,24 @@
 import sys
 
-
 def get():
     return sys.stdin.readline().rstrip()
 
 
-n, m = map(int, get().split())
-
+n, s = map(int, get().split())
 arr = list(map(int, get().split()))
 
 pointer = 0
+temp_sum = arr[0]
 answer = sys.maxsize
-tot = arr[0]
 
 for i in range(n):
-    while pointer < n and tot < m:
+    while pointer < n-1 and temp_sum < s:
         pointer += 1
-        if pointer < n:
-            tot += arr[pointer]
-    if pointer == n:
-        break
-    answer = min(answer, pointer-i+1)
-    tot -= arr[i]
+        temp_sum += arr[pointer]
+    
+    if temp_sum >= s:
+        answer = min(answer, pointer-i+1)
 
-if answer == sys.maxsize:
-    answer = 0
+    temp_sum -= arr[i]
 
-print(answer)
+print(answer if answer != sys.maxsize else 0)
